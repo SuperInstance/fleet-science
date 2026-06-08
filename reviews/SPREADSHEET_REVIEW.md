@@ -47,13 +47,45 @@ The ecosystem has **one genuinely novel idea** (exhaustive ternary enumeration) 
 ## Beta Tester Reports
 
 ### Agent Audit 1: Rust Spreadsheet Crates
-*Pending — agent running on spreadsheet-engine, spreadsheet-plr-bridge, spread, spectral-spreadsheet*
+*Still running — awaiting results for spreadsheet-engine, spreadsheet-plr-bridge, spread, spectral-spreadsheet*
 
-### Agent Audit 2: Browser & Python Spreadsheet Projects
-*Pending — agent running on superinstance-spreadsheet, ternary-spreadsheet, ternary-spreadsheet-python, spreadsheet-moment-proto, Spreadsheet-ai, si-superinstance*
+### Agent Audit 2: Browser & Python Projects ✅ COMPLETE
 
-### Agent Audit 3: Ternary ML Ecosystem
-*Pending — agent running on ternary-svm, ternary-regression, ternary-logistic, ternary-em, ternary-quantize, ternary-pool, ternary-optimizer, ternary-bite*
+**2 REAL, 1 PROTOTYPE, 1 STUB, 2 redundant**
+
+| Repo | Verdict | Tests | Key Finding |
+|---|---|---|---|
+| si-superinstance | REAL ✅ | 18/18 | **Crown jewel** — clean pip API, exhaustive search, game theory |
+| superinstance-spreadsheet | REAL ✅ | manual | Working browser demo, zero deps, real formulas |
+| ternary-spreadsheet (Rust) | REAL ✅ | 30/30 | Good but narrow, no binary, no consumers |
+| ternary-spreadsheet-python | REAL ✅ | 27/27 | Feature-poor compared to si-superinstance |
+| spreadsheet-moment-proto | PROTOTYPE ⚠️ | none | 88MB marketing site + worker stubs, zero real math |
+| Spreadsheet-ai | STUB ❌ | none | **Zero source files** — only markdown, no code |
+
+**Critical finding**: spreadsheet-moment-proto claims 60+ peer-reviewed papers (NeurIPS, ICML, Nature) with zero backing in code. Worker stubs have elaborate JSDoc for features that don't exist.
+
+**Recommendation**: Consolidate to 2 repos — `si-superinstance` (pip) as canonical engine, `superinstance-spreadsheet` (browser) as canonical demo. Archive the rest.
+
+Full audit: `fleet-science/audits/AUDIT_BROWSER_PYTHON_SPREADSHEETS.md`
+
+### Agent Audit 3: Ternary ML Ecosystem ✅ COMPLETE
+
+**All 8 repos are REAL. 139 tests, 0 failures.**
+
+| Repo | Verdict | Tests | Key Finding |
+|---|---|---|---|
+| ternary-svm | REAL ✅ | 12/12 | Genuine SMO with Lagrange multipliers, kernel support |
+| ternary-regression | REAL ✅ | 14/14 | OLS/Ridge/Lasso with normal equation + proximal gradient |
+| ternary-logistic | REAL ✅ | 14/14 | Binary + multinomial logistic, numerically stable |
+| ternary-em | REAL ✅ | 16/16 | Real EM for ternary mixtures, KL/JS divergence |
+| ternary-quantize | REAL ✅ | 32/32 | **Most practical** — production quantization toolkit |
+| ternary-pool | REAL ✅ | 20/20 | 2D + global + adaptive + stochastic pooling |
+| ternary-optimizer | REAL ✅ | 15/15 | SignSGD/Adam ternary optimizers |
+| ternary-bite | REAL ✅ | 16/16 | Signal processing (scope mismatch but code works) |
+
+**Key insight**: Not vaporware. Real algorithms, correct math. But all single-file library crates with no benchmarks, no cross-crate integration, and no deployment story. Need benchmarks + example pipelines to graduate from "correct" to "production."
+
+Full audit: `fleet-science/audits/AUDIT_TERNARY_ML.md`
 
 ---
 
