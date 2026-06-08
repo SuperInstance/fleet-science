@@ -1,0 +1,1 @@
+{"test_vector": [1, 0, -1, 1, 0, -1, 1, 1], "expected": [60, 64, 64, 60, 64, 64, 60, 64, 68], "languages": ["Python", "JS", "Go", "Rust", "C", "C++"]}
